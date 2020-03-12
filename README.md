@@ -1,8 +1,8 @@
-## i3, chrome
+## i3, firefox
 
 https://i3wm.org/docs/userguide.html
 
-* Chrome
+* firefox
     * Control + Num
 * Workspace
     * Alt + Num
