@@ -31,6 +31,11 @@ RUN pkgadd i3 i3status suckless-tools xfce4-terminal
 RUN pkgadd language-pack-ja
 RUN pkgadd vim ranger
 
+# nginx
+RUN pkgadd nginx
+COPY files/nginx/htpasswd /etc/nginx/htpasswd
+COPY files/nginx/default /etc/nginx/sites-available/default
+
 ENV \
   SCREEN=0 \
   SCREEN_WIDTH=1280 \
@@ -51,8 +56,12 @@ ENV DOCKER_USER=${DOCKER_USER}
 ENV URL="https://google.co.jp"
 
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY files/index.html /usr/share/novnc/index.html
+COPY files/novnc.html /usr/share/novnc/index.html
 
+# vnc
 EXPOSE 5900
-EXPOSE 8080
+# novnc
+EXPOSE 6080
+# nginx with auth
+EXPOSE 80
 CMD ["sudo", "-E", "/usr/bin/supervisord"]

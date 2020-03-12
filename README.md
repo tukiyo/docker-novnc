@@ -12,11 +12,12 @@ https://i3wm.org/docs/userguide.html
 ## 起動
 
 ```sh
-docker run -p 8080:8080 -it tukiyo3/novnc
+docker run -p 6080:6080 -it tukiyo3/novnc
 ```
 
-* http://localhost:8080/
-* パスワードなし
+* http://localhost:6080/
+    * user1 : password1
+    * => nginx/htpasswd にて指定
 * url
     * https://github.com/tukiyo/docker-novnc
     * https://hub.docker.com/repository/docker/tukiyo3/novnc

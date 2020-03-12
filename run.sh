@@ -1,2 +1,2 @@
-docker run -it --rm -p 8080:8080 tukiyo3/novnc
-# docker run -it --rm -p 5900:5900 tukiyo3/novnc
+docker run -it --rm -p 80:80 --name=novnc tukiyo3/novnc:latest
+# docker run -it --rm -p 5900:5900 --name=novnc tukiyo3/novnc
