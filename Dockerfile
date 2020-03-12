@@ -26,11 +26,11 @@ RUN pkgadd i3 i3status suckless-tools xfce4-terminal
 RUN pkgadd language-pack-ja
 RUN pkgadd vim ranger
 
-# RUN pkgadd gnupg \
-#  && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-#  && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-#  && pkgadd google-chrome-stable
-RUN pkgadd firefox firefox-locale-ja
+RUN pkgadd gnupg \
+ && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+ && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+ && pkgadd google-chrome-stable
+# RUN pkgadd firefox firefox-locale-ja
 
 # nginx
 RUN pkgadd nginx
