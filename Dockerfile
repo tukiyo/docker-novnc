@@ -53,5 +53,6 @@ ENV URL="https://google.co.jp"
 COPY files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY files/index.html /usr/share/novnc/index.html
 
+EXPOSE 5900
 EXPOSE 8080
 CMD ["sudo", "-E", "/usr/bin/supervisord"]
