@@ -1,14 +1,10 @@
-## i3, firefox
+## icewm, firefox
 
 https://i3wm.org/docs/userguide.html
 
 * firefox
     * Control + Num
-* Workspace
-    * Alt + Num
-* Fullscreen
-    * Alt + F
-
+ 
 ## 起動
 
 ```sh
@@ -35,6 +31,7 @@ docker run -p 127.0.0.1:5900:5900 -it tukiyo3/novnc
 ```sh
 docker run -it -d \
  --restart=always \
+ -p 127.0.0.1:80:80 \
  -p 127.0.0.1:5900:5900 \
  -e URL=file:///home/docker/index.html \
  -v $(pwd)/index.html:/home/docker/index.html \
