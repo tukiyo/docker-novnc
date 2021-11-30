@@ -22,11 +22,13 @@ RUN pkgadd locales tzdata \
 RUN pkgadd novnc xvfb supervisor x11vnc net-tools sudo
 
 RUN pkgadd fonts-ipafont
-RUN pkgadd i3 i3status suckless-tools xfce4-terminal
+RUN pkgadd icewm xfce4-terminal
 RUN pkgadd language-pack-ja
 RUN pkgadd vim ranger
 
 RUN pkgadd firefox firefox-locale-ja
+RUN pkgadd thunderbird thunderbird-locale-ja
+RUN pkgadd ssh autossh tig expect xtightvncviewer rdesktop screen
 
 # nginx
 RUN pkgadd nginx
