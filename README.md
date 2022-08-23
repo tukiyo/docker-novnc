@@ -1,9 +1,7 @@
-## icewm, firefox
+## icewm, brave
 
 https://i3wm.org/docs/userguide.html
 
-* firefox
-    * Control + Num
  
 ## 起動
 

@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -8,6 +8,7 @@ ENV \
   LC_ALL="ja_JP.UTF-8" \
   TZ="Asia/Tokyo"
 
+RUN sed -i -e 's/archive/jp.archive/g' /etc/apt/sources.list
 RUN echo 'apt update && apt install --no-install-recommends -y $@ && apt-get clean && rm -rf /var/lib/apt/lists/*' > /usr/local/bin/pkgadd \
  && chmod +x /usr/local/bin/pkgadd
 
@@ -26,9 +27,13 @@ RUN pkgadd icewm xfce4-terminal
 RUN pkgadd language-pack-ja
 RUN pkgadd vim ranger
 
-RUN pkgadd firefox firefox-locale-ja
-RUN pkgadd thunderbird thunderbird-locale-ja
 RUN pkgadd ssh autossh tig expect xtightvncviewer rdesktop screen
+
+# brave-browser
+RUN pkgadd apt-transport-https
+RUN wget -O "/usr/share/keyrings/brave-browser-archive-keyring.gpg" "https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg"
+RUN echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+RUN pkgadd brave-browser
 
 # nginx
 RUN pkgadd nginx

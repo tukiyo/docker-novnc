@@ -1,5 +1,8 @@
 # privileged を付けないと、google-chromeが一般ユーザーで起動ができない。 /dev/fd/4 への書き込みが失敗などとでた。
 
+docker stop novnc
+docker rm novnc
+
 docker run -d \
  --privileged -it \
  --name=novnc \
